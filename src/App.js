@@ -5,6 +5,7 @@ import Container from './components/Container/Container';
 // import ContactsList from './components/ContactsList/ContactsList';
 // import Filter from './components/Fliter/Filter';
 import HomePage from './pages/Home';
+import ContactsPage from './pages/Contacts';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <ContactsList />
       </Section> */}
       <HomePage />
+      <ContactsPage />
     </Container>
   );
 }
