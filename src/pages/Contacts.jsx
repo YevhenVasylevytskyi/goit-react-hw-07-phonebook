@@ -1,5 +1,5 @@
 import { ContactList } from 'components/ContactsList/ContactsList';
-import { useFetchContactsQuery, useDeleteContactMutation } from 'redux/contacts/contacts';
+import { useFetchContactsQuery, useDeleteContactMutation } from 'redux/contacts/contactsApi';
 
 const ContactsPage = () => {
     const { data, error, isFetching, isError } = useFetchContactsQuery();
