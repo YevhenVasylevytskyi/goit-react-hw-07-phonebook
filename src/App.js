@@ -4,8 +4,9 @@ import Container from './components/Container/Container';
 // import FormAddContact from './components/FormAddContact/FormAddContact';
 // import ContactsList from './components/ContactsList/ContactsList';
 // import Filter from './components/Fliter/Filter';
-import HomePage from './pages/Home';
+// import HomePage from './pages/Home';
 import ContactsPage from './pages/Contacts';
+import AddContact from './pages/AddContact';
 
 export default function App() {
   return (
@@ -18,7 +19,8 @@ export default function App() {
         <Filter />
         <ContactsList />
       </Section> */}
-      <HomePage />
+      {/* <HomePage /> */}
+      <AddContact />
       <ContactsPage />
     </Container>
   );
