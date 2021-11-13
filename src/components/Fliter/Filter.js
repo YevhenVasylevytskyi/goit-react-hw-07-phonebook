@@ -1,9 +1,7 @@
 import React from 'react';
 import shortid from 'shortid';
-// import { connect } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
-import contactsActions from '../../redux/phonebook/phonebook-actions';
-// import PropTypes from 'prop-types';
+import contactsActions from '../../redux/contacts-1/contacts-actions';
 import style from './Filter.module.css';
 
 const filterInputId = shortid.generate();
@@ -29,10 +27,5 @@ const Filter = () => {
     </label>
   );
 };
-
-// Filter.protoType = {
-//   filter: PropTypes.string,
-//   onChangeFilter: PropTypes.func,
-// };
 
 export default Filter;

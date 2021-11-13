@@ -1,19 +1,38 @@
-// import { createStore, combineReducers } from 'redux';
-// import { composeWithDevTools } from 'redux-devtools-extension';
 import { configureStore } from '@reduxjs/toolkit';
-import contactsReducer from './phonebook/phonebook-reducer';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { pokemonApi } from './pokemon/pokemon';
 
-// const rootReducer = combineReducers({
-//   contacts: contactsReducer,
-// });
-
-// const store = createStore(rootReducer, composeWithDevTools());
-
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    contacts: contactsReducer,
+    [pokemonApi.reducerPath]: pokemonApi.reducer,
   },
-  devTools: process.env.NODE_ENV === 'development',
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware(),
+    pokemonApi.middleware,
+  ],
 });
 
-export default store;
+setupListeners(store.dispatch);
+
+// import { createStore, combineReducers } from 'redux';
+// import { composeWithDevTools } from 'redux-devtools-extension';
+// import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+// import { setupListeners } from '@reduxjs/toolkit/dist/query';
+// import contactsReducer from './contacts/contacts-reducer';
+// import { contactApi } from './contacts/contactsSlice';
+
+// export const store = configureStore({
+//   reducer: {
+//     contacts: contactsReducer,
+//     [contactApi.reducerPath]: contactApi.reducer
+//   },
+//   middleware: getDefaultMiddleware = [
+//     ...getDefaultMiddleware(),
+//     contactApi.middleware,
+//   ],
+//   devTools: process.env.NODE_ENV === 'development',
+// });
+
+// setupListeners(store.dispatch);
+
+// export default store;

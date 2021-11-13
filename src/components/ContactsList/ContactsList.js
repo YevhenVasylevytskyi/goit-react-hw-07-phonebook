@@ -1,8 +1,6 @@
 import React from 'react';
-// import { connect } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
-import contactsActions from '../../redux/phonebook/phonebook-actions';
-// import PropTypes from 'prop-types';
+import contactsActions from '../../redux/contacts-1/contacts-actions';
 import style from './ContactsList.module.css';
 
 const getVisibleContacts = (contacts, filter) => {
@@ -47,10 +45,5 @@ const ContactsList = () => {
     </ul>
   );
 };
-
-// ContactsList.propTypes = {
-//   contacts: PropTypes.array,
-//   deleteContact: PropTypes.func,
-// };
 
 export default ContactsList;
