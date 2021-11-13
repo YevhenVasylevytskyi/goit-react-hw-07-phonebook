@@ -1,12 +1,20 @@
-// import { useCreateContactMutation } from 'redux/contacts/contactsApi';
+import { useCreateContactMutation } from 'redux/contacts/contactsApi';
 import style from './Contacts.module.css';
 
 const AddContact = () => {
-    // const [createContact] = useCreateContactMutation();
+    const [createContact] = useCreateContactMutation();
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log(event.currentTarget.elements.content.value);
+        // const {value} = event.currentTarget.elements
+        // createContact(value.name.value, value.phone.value);
+        const name = event.currentTarget.elements.name.value;
+        const phone = event.currentTarget.elements.phone.value;
+        const contactValue = {name, phone}
+        console.log(`name: ${name}`);
+        console.log(`phone: ${phone}`);
+        createContact(contactValue);
+        event.currentTarget.reset();
     }
 
     return (
@@ -29,18 +37,18 @@ const AddContact = () => {
             </label>
 
             <label className={style.label} /*htmlFor={numberInputId}*/>
-                Namber
+                Phone
                 <input
                 className={style.input_number}
                 type="tel"
-                name="number"
-                placeholder="Namber"
+                name="phone"
+                placeholder="Phone"
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                 title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
                 required
-                //   id={numberInputId}
-                //   value={number}
-                //   onChange={handleChange}
+                // id={numberInputId}
+                // phone={phone}
+                // onChange={handleChange}
                 />
             </label>
             <button className={style.button} type="submit">

@@ -19,10 +19,13 @@ export const contactsApi = createApi({
       invalidatesTags: ['Contact'],
     }),
     createContact: builder.mutation({
-      query: newContact => ({
+      query: contactValue => ({
         url: `/contacts`,
         method: 'POST',
-        body: newContact,
+        body: {
+          name: contactValue.name,
+          phone: contactValue.phone,
+        },
       }),
       invalidatesTags: ['Contact'],
     }),
