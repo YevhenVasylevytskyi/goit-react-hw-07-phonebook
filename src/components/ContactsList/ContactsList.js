@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import style from './ContactsList.module.css';
 
-export const ContactList = ({ contacts, onDelete, deleting }) => {
+const ContactList = ({ contacts, deleteContact }) => {
   return (
     <ul className={style.list}>
       {contacts.map(contact => {
@@ -9,17 +10,13 @@ export const ContactList = ({ contacts, onDelete, deleting }) => {
             <span>
               {contact.name}: {contact.phone}
             </span>
-
             <button
-              onClick={() => onDelete(contact.id)}
-              // className={style.button}
-              // type="button"
-              // id={contact.id}
-              // onClick={() =>
-              //   dispatch(contactsActions.deleteContact(contact.id))
-              // }
+              className={style.button}
+              type="button"
+              id={contact.id}
+              onClick={() => deleteContact(contact.id)}
             >
-              {deleting ? 'Deleting....' : 'Delete'}
+              Delete
             </button>
           </li>
         );
@@ -27,3 +24,10 @@ export const ContactList = ({ contacts, onDelete, deleting }) => {
     </ul>
   );
 };
+
+ContactList.propTypes = {
+  contacts: PropTypes.array,
+  deleteContact: PropTypes.func,
+};
+
+export default ContactList;

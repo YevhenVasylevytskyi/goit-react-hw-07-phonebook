@@ -1,4 +1,4 @@
-import { useCreateContactMutation } from 'redux/contacts/contactsApi';
+import { useCreateContactMutation } from 'redux/phonebook/phonebookApi';
 import style from './AddContact.module.css';
 
 const AddContact = () => {
@@ -36,7 +36,7 @@ const AddContact = () => {
           />
         </label>
 
-        <label className={style.label} /*htmlFor={numberInputId}*/>
+        <label className={style.label}>
           Phone
           <input
             className={style.input_number}

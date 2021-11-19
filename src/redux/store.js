@@ -1,21 +1,25 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { setupListeners } from '@reduxjs/toolkit/query';
+// import { setupListeners } from '@reduxjs/toolkit/query';
+import filterReducer from './phonebook/filter/filter-reducer';
 // import { pokemonApi } from './pokemon/pokemon';
-import { contactsApi } from './contacts/contactsApi';
+import { phonebookApi } from './phonebook/phonebookApi';
 
 export const store = configureStore({
   reducer: {
     // [pokemonApi.reducerPath]: pokemonApi.reducer,
-    [contactsApi.reducerPath]: contactsApi.reducer,
+    filter: filterReducer,
+    [phonebookApi.reducerPath]: phonebookApi.reducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware(),
     // pokemonApi.middleware,
-    contactsApi.middleware,
+    phonebookApi.middleware,
   ],
+
+  devTools: process.env.NODE_ENV === 'development',
 });
 
-setupListeners(store.dispatch);
+// setupListeners(store.dispatch);
 
 // import { createStore, combineReducers } from 'redux';
 // import { composeWithDevTools } from 'redux-devtools-extension';
